@@ -96,7 +96,7 @@ function toggleMenuItem($name, $menu, $hide)
     global $config;
 
     $items = explode(':', $config['menu_toggle_hidden_' . $menu . 'menu_items']);
-    $items = array_filter($items);
+    $new_items = $items = array_filter($items);
 
     if (in_array($name, $items) && ! $hide)
     {
@@ -104,7 +104,6 @@ function toggleMenuItem($name, $menu, $hide)
     }
     elseif ($hide)
     {
-        $new_items   = $items;
         $new_items[] = $name;
     }
 
